@@ -26,7 +26,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	documento, existe := bd.IntentoLogin(t.Email, t.Password)
-	if existe == false {
+	if !existe {
 		http.Error(w, "Usuario y/o Contraseña inválidos ", 400)
 		return
 	}
